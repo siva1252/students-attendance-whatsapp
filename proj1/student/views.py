@@ -12,10 +12,10 @@ def focus_whatsapp_window():
     try:
         window = gw.getWindowsWithTitle('WhatsApp')[0]  
         window.activate()
-        print("✅ Focused WhatsApp window")
+        print("Focused WhatsApp window")
         time.sleep(1)
     except Exception as e:
-        print(f"❌ Couldn't focus WhatsApp window: {e}")
+        print(f" Couldn't focus WhatsApp window: {e}")
 
 
 
@@ -34,11 +34,11 @@ def send_whatsapp_msg(phone_number, message):
     pyperclip.copy(link)
     pyautogui.hotkey('ctrl', 'v')  
     pyautogui.press('enter')       
-    print(f"🔗 Opening chat with {phone_number}")
+    print(f" Opening chat with {phone_number}")
     time.sleep(15)  
 
     pyautogui.press('enter')       
-    print(f"✅ Message sent to {phone_number}")
+    print(f" Message sent to {phone_number}")
     time.sleep(6)  
 
 
@@ -65,7 +65,7 @@ def mark_attendance(request):
                     try:
                         send_whatsapp_msg(student.phone_number, msg)
                     except Exception as e:
-                        print(f"❌ Error sending to {student.phone_number}: {e}")
+                        print(f" Error sending to {student.phone_number}: {e}")
 
             request.session['attendance_submitted'] = True
             return redirect('attendance')
